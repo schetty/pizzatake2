@@ -22,13 +22,26 @@
         //        if ([self.delegate kitchenShouldUpgradeOrder:self] == True ... essentially what it's saying
 
         if ([self.delegate kitchenShouldUpgradeOrder:(self)] == YES && pizzaSize !=2) {
-            return [[Pizza alloc] initWithSize:large andToppings:toppings];
+           Pizza *madePizza = [[Pizza alloc] initWithSize:large andToppings:toppings];
+            NSLog(@"here is your %ld pizza with %@", (long)madePizza.size, madePizza.toppings);
+            return madePizza;
         }
-            return [[Pizza alloc] initWithSize:pizzaSize andToppings:toppings];
+        
+        Pizza * madeNewPizza = [[Pizza alloc] initWithSize:pizzaSize andToppings:toppings];
+            return madeNewPizza;
 
+    }
+    if ([toppings containsObject:@"anchovies"]) {
+        NSLog(@"no way!!!");
     }
     NSLog(@"no pizza then");
     return nil;
 }
+
+
+-(void)kitchenDidMakePizza:(Pizza *)pizza {
+    NSLog(@"Here is your pizza");
+}
+
 
 @end

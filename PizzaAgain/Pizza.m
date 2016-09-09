@@ -20,7 +20,7 @@
         _pizzaSize = size;
         _toppings = toppings;
         
-        NSLog(@"one %li pizza with %@", (long)self.size, self.toppings);
+        NSLog(@"one %ld pizza with %@", (long)self.size, self.toppings);
     }
     return self;
 }

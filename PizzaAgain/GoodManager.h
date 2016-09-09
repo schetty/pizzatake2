@@ -7,7 +7,10 @@
 //
 
 #import <Foundation/Foundation.h>
+#import "KitchenDelegate.h"
 
-@interface GoodManager : NSObject
+@interface GoodManager : NSObject <KitchenDelegate>
+
+
 
 @end

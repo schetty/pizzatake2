@@ -11,6 +11,8 @@
 #import "Pizza.h"
 #import "InputCollector.h"
 #import "KitchenDelegate.h"
+#import "GoodManager.h"
+#import "BadManager.h"
 
 int main(int argc, const char * argv[]) {
     @autoreleasepool {
@@ -19,6 +21,9 @@ int main(int argc, const char * argv[]) {
         InputCollector *input = [[InputCollector alloc]init];
         Kitchen *mainKitchen = [[Kitchen alloc]init];
         NSMutableArray *toppings = [[NSMutableArray alloc]init];
+        GoodManager *goodMan = [[GoodManager alloc]init];
+        BadManager *badMan = [[BadManager alloc]init];
+        
         
         BOOL isOpen = NO;
         
@@ -55,9 +60,9 @@ int main(int argc, const char * argv[]) {
                     NSLog(@"you ordered size: %@", declareSize);
                 }
                 
-                else {
-                    NSLog(@"no pizza for you");
-                }
+//                else {
+//                    NSLog(@"no pizza for you");
+//                }
                 
                 
                 toppings = [@[]mutableCopy];
@@ -83,11 +88,25 @@ int main(int argc, const char * argv[]) {
                     [mainKitchen.delegate kitchenShouldUpgradeOrder:mainKitchen];
                 }
                 
-                else ([])
+                if ([mainKitchen.delegate respondsToSelector:@selector(kitchenDidMakePizza:)]) {
+                    NSLog(@"We have a good delegate");
+                }
+                
+                
+                NSString *declareManager = [input inputPrompt: @"Type 1 for Good Manager \n 2 for Bad"];
+                if ([declareManager isEqualToString:@"1"]) {
+                    mainKitchen.delegate = goodMan;
+                    [mainKitchen makePizzaWithSize:size andToppings:(toppings)];
+                }
+            
+                if ([declareManager isEqualToString:@"2"]) {
+                    mainKitchen.delegate = badMan;
+                   [mainKitchen makePizzaWithSize:size andToppings:(toppings)];
+
+                    
+                }
                 
             }
-            
-            
             
         }
         return 0;

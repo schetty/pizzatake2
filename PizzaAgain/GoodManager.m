@@ -7,7 +7,19 @@
 //
 
 #import "GoodManager.h"
+@class Kitchen;
 
 @implementation GoodManager
+
+-(BOOL)kitchen:(Kitchen *)kitchen shouldMakePizzaOfSize:(id)size andToppings:(NSArray *)toppings {
+    return true;
+    
+}
+
+
+
+-(BOOL)kitchenShouldUpgradeOrder:(Kitchen *)kitchen {
+    return true;
+}
 
 @end

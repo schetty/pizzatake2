@@ -10,4 +10,18 @@
 
 @implementation BadManager
 
+-(BOOL)kitchen:(Kitchen *)kitchen shouldMakePizzaOfSize:(PizzaSize)size andToppings:(NSArray *)toppings {
+    if ([toppings doesContain:@"anchovies"]) {
+        NSLog(@"yuck no anchvoies");
+    }
+    return false;
+
+}
+
+-(BOOL)kitchenShouldUpgradeOrder:(Kitchen *)kitchen {
+
+    return true;
+    
+}
+
 @end
