@@ -22,9 +22,9 @@
         //        if ([self.delegate kitchenShouldUpgradeOrder:self] == True ... essentially what it's saying
 
         if ([self.delegate kitchenShouldUpgradeOrder:(self)] == YES && pizzaSize !=2) {
-           Pizza *madePizza = [[Pizza alloc] initWithSize:large andToppings:toppings];
-            NSLog(@"here is your %ld pizza with %@", (long)madePizza.size, madePizza.toppings);
-            return madePizza;
+           Pizza *madeNewPizza = [[Pizza alloc] initWithSize:large andToppings:toppings];
+            NSLog(@"here is your %ld pizza with %@", (long)madeNewPizza.size, madeNewPizza.toppings);
+            return madeNewPizza;
         }
         
         Pizza * madeNewPizza = [[Pizza alloc] initWithSize:pizzaSize andToppings:toppings];
@@ -40,6 +40,10 @@
 
 
 -(void)kitchenDidMakePizza:(Pizza *)pizza {
+    
+    if (self.madeNewPizza) {
+
+    }
     NSLog(@"Here is your pizza");
 }
 

@@ -13,6 +13,7 @@
 #import "KitchenDelegate.h"
 #import "GoodManager.h"
 #import "BadManager.h"
+#import "DeliveryService.h"
 
 int main(int argc, const char * argv[]) {
     @autoreleasepool {
@@ -23,6 +24,7 @@ int main(int argc, const char * argv[]) {
         NSMutableArray *toppings = [[NSMutableArray alloc]init];
         GoodManager *goodMan = [[GoodManager alloc]init];
         BadManager *badMan = [[BadManager alloc]init];
+        DeliveryService *delivServ = [[DeliveryService alloc]init];
         
         
         BOOL isOpen = NO;
